@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+
+# Conda and virtual environments
+.env
+.env.*
+.venv/
+venv/
+
+# Raw and processed datasets
+data/raw/
+data/processed/
+data/splits/
+
+# Model checkpoints and weights
+checkpoints/
+*.safetensors
+*.bin
+*.pt
+*.pth
+*.ckpt
+
+# Experiment artifacts
+results/
+wandb/
+mlruns/
+logs/
+*.log
+
+# IDE and operating system
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
