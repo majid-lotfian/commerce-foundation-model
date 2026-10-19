@@ -35,3 +35,17 @@ logs/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Generated training outputs
+outputs/
+
+# All local datasets and generated data
+/data/
+
+# Large prediction and evaluation artifacts
+*.jsonl
+*.parquet
+*.arrow
+
+# Training caches
+.cache/

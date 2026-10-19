@@ -1,0 +1,26 @@
+{
+  "project": "commerce-foundation-model",
+  "base_model": "Qwen3-8B",
+  "dataset": "Amazon Reviews 2023",
+  "categories": ["All Beauty", "Electronics", "Home & Kitchen", "Sports & Outdoors"],
+  "continued_pretraining": {
+    "evaluation": "held-out review next-token prediction",
+    "baseline": {"loss": 2.9701, "perplexity": 19.49},
+    "adapted": {"loss": 2.3914, "perplexity": 10.93},
+    "reported_relative_reduction_percent": {"loss": 19.5, "perplexity": 43.9}
+  },
+  "rating_prediction": {
+    "test_examples": 9885,
+    "metrics": ["accuracy", "mae", "rmse", "macro_f1"],
+    "experiments": [
+      {"name": "original", "accuracy": 0.5927162367223066, "mae": 0.7226100151745068, "rmse": 1.3154465383840137, "macro_f1": 0.24608113841506904},
+      {"name": "base_qlora_r16", "accuracy": 0.681639, "mae": 0.717147, "rmse": 1.443209, "macro_f1": 0.243315},
+      {"name": "cpt_qlora_r16", "accuracy": 0.683561, "mae": 0.711583, "rmse": 1.436570, "macro_f1": 0.245963},
+      {"name": "qlora_r8", "accuracy": 0.6828528, "mae": 0.7156297, "rmse": 1.4426834, "macro_f1": 0.2465197},
+      {"name": "qlora_r32", "accuracy": 0.6827516, "mae": 0.7137076, "rmse": 1.4392785, "macro_f1": 0.2454446},
+      {"name": "bf16_lora_r16", "accuracy": 0.6824482, "mae": 0.7140111, "rmse": 1.4393839, "macro_f1": 0.2449705}
+    ],
+    "class_support": {"1": 875, "2": 478, "3": 707, "4": 1237, "5": 6588},
+    "limitations": "Class imbalance and low macro F1; fine-tuning did not improve RMSE compared with the original baseline."
+  }
+}
